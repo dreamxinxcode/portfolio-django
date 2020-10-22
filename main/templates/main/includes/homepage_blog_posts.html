@@ -1,0 +1,29 @@
+	  	<section class="latest-blog-section p-3 p-lg-5" data-aos="fade-in" data-aos-duration="2000">
+			<div class="container">
+				<h2 class="section-title font-weight-bold mb-5">Latest Blog Posts</h2>
+				<div class="row">
+
+				    {% for blog in blog_home %}  
+
+					<div class="col-md-4 mb-5 align-items-stretch d-flex">
+						<div class="card blog-post-card">
+							<img class="card-img-top" src={{blog.blog_image.url}} alt="image">
+							<div class="card-body">
+								<h5 class="card-title"><a class="theme-link" href="{% url 'main:blog_detail' slug=blog.slug %}">{{blog.blog_title}}</a></h5>
+								<p class="card-text">{{blog.blog_text|truncatewords:50|safe}}</p>
+								<p class="mb-0"><a class="more-link" href="{% url 'main:blog_detail' slug=blog.slug %}">Read more <i class="fas fa-arrow-right"></i></a></p>
+								
+							</div>
+							<div class="card-footer">
+								<small class="text-muted">{{ blog_post.blog_date }}</small>
+							</div>
+						</div><!--//card-->
+					</div><!--//col-->
+
+					{% endfor %}
+
+				</div><!--//row-->
+				<div class="text-center py-3"><a href="{% url 'main:blog_view' %}" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-right mr-2"></i>View Blog</a></div>
+			</div><!--//container-->
+			
+		</section><!--//latest-blog-section-->

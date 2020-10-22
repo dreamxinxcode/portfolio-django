@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+	    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container single-col-max-width">
+			    <h2 class="heading text-center">{{project.project_title}}</h2>
+			    <div class="project-intro text-center">
+					<p class="mb-0 lead">{{project.project_intro|safe}}</p>
+				</div>
+			    
+		    </div><!--//container-->
+	    </section>
+	    <section class="project px-3 py-5 p-md-5">
+		    <div class="container">
+			    <div class="project-meta media flex-column flex-md-row p-4 theme-bg-light">
+				    <img class="project-thumb mb-3 mb-md-0 mr-md-5 d-md-inline-block" src="{{project.project_image.url}}" alt="">
+					<div class="media-body">
+					    <div class="client-info">
+						    <h3 class="client-name font-weight-bold mb-4">{{project.project_client}}</h3>
+						    <ul class="client-meta list-unstyled">
+                            {% if project.open_source %}
+							   <li class="mb-2"><strong><i class="fab fa-github fa-fw mr-2"></i>GitHub:</strong> <a class="theme-link" target="blank" href="{{project.project_github}}">{{project.project_github}}</a></li>
+                            {% else %}
+							    <li class="mb-2"><i class="fas fa-industry fa-fw mr-2"></i><strong>Industry:</strong> {{project.project_client_industry}}</li>
+							    <li class="mb-2"><strong><i class="fas fa-link fa-fw mr-2"></i>Website:</strong> <a class="theme-link" href="{{project.client_website}}">{{project.client_website}}</a></li>
+						    {% endif %}
+                            </ul>
+							<h3 class="project-section-title">Project Overview</h3>
+						    <div class="client-bio mb-4"><p>{{project.project_overview|safe}}</p></div>
+						    {% comment %} <h4 class="subheading mb-3">Project Features</h4>
+						    <ul class="mb-0">
+							    <li class="mb-2">Requirement lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+							    <li class="mb-2">Requirement donec pede justo, fringilla vel, aliquet nec.</li>
+							    <li class="mb-2">Requirement phasellus ullamcorper ipsum rutrum nunc. </li>
+						    </ul> {% endcomment %}
+					    </div>					
+					</div><!--//media-body-->
+				</div><!--//project-meta-->
+				{% comment %} <div class="project-sections py-5">			
+					<div class="project-section mb-5">
+					    <div class="row mt-5">
+						    <div class="col-12 col-lg-6 mb-5">
+							    <img class="img-fluid rounded" src="assets/images/project/project-figure-1.jpg" alt="image">
+						    </div>
+						    <div class="col-12 col-lg-6 mb-5">
+							    <img class="img-fluid rounded" src="assets/images/project/project-figure-2.jpg" alt="image">
+						    </div>
+					    </div>
+					</div><!--//project-section-->
+				</div> {% endcomment %}
+		    </div>
+	    </section>
+	    
+	    <section class="promo-section theme-bg-light py-5 text-center">
+		    <div class="container single-col-max-width">
+			    <h2 class="title">Want me to help with your project?</h2>
+                <div class="text-center"><a class="btn btn-primary" href="{% url "main:contact_view" %}" target="_blank"><i class="fas fa-paper-plane mr-2"></i>Hire Me</a></div>
+		    </div><!--//container-->
+	    </section><!--//promo-section-->
+    
+{% endblock %}

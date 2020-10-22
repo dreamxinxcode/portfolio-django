@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+	    <section class="cta-section theme-bg-light py-5" data-aos="fade-in" data-aos-duration="2000">
+		    <div class="container text-center">
+			    <h2 class="heading">A Blog About Software Development And Life</h2>
+			    {% comment %} <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form> {% endcomment %}
+		    </div><!--//container-->
+	    </section>
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+			    <div class="row">
+
+
+
+					{% for blog_post in blog %}  
+					<div class="col-md-4 mb-3" data-aos="fade-in" data-aos-duration="2000">
+						<div class="card blog-post-card">
+							<img class="card-img-top" src={{blog_post.blog_image.url}} alt="image">
+							<div class="card-body">
+								<h5 class="card-title"><a class="theme-link" href="{% url "main:blog_detail" slug=blog_post.slug %}">{{blog_post.blog_title}}</a></h5>
+								<p class="card-text">{{blog_post.blog_text|truncatewords:50|safe}}</p>
+								<p class="mb-0"><a class="more-link" href="{% url "main:blog_detail" slug=blog_post.slug %}">Read more <i class="fas fa-arrow-right"></i></a></p>
+							</div>
+							<div class="card-footer">
+							<small class="text-muted">{{ blog_post.blog_date | date:"d F Y" }}</small>								
+							</div>
+						</div><!--//card-->
+					</div><!--//col-->
+					{% endfor %}
+
+				</div><!--//row-->
+			    
+		    </div>
+	    </section>
+</div>
+
+{% endblock %}

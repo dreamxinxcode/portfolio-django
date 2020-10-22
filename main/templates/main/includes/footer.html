@@ -1,0 +1,95 @@
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark" data-aos="fade-in" data-aos-duration="2000">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        {% load staticfiles %}
+        <div>
+        <a style="color: #adb0b3; display: inline-block; margin: 0;" href="{% url 'main:homepage_view' %}"><i class="fas fa-terminal mr-1 "></i><h6 style="display: inline-block;" class="text-uppercase font-weight-bold">Dream in Code</h6></a>
+        </div>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 120px;">
+        <p>Software Solutions</p>
+        <p>Web Development</p>
+        <p>System Administration</p>
+        <p>Security</p>
+	<p>SEO</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Featured Projects</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        
+        {% for project in projects_footer %}
+        {% if project.project_featured %}
+        <p>
+          <a href="{% url 'main:project_detail' slug=project.slug %}">{{project.project_title}}</a>
+        </p>
+        {% endif %}
+        {% endfor %}
+       
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Blog</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 30px;">
+        
+        {% for blog in blog_footer %}
+        <p>
+          <a href="{% url 'main:blog_detail' slug=blog.slug %}">{{blog.blog_title}}</a>
+        </p>
+        {% endfor %}
+        
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i> Victoria British Columbia</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> brandon@dreamincode.dev</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> 778-535-6452</p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">&copy; <span id="year"></span> Brandon Lecky:
+    <a href="mailto:brandon@dreamincode.dev">brandon@dreamincode.dev</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
