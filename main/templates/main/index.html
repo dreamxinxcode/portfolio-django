@@ -40,63 +40,45 @@
 				<div class="row">
 
                 	
-		    <h2 class="section-title font-weight-bold mb-3">Languages & Frameworks</h2>
+		    <h2 class="section-title font-weight-bold mb-3">Languages</h2>
 
-
-                    <div class="item col-6 col-lg-3">
+					{% for language in languages %}
+          <div class="item col-6 col-lg-3">
 						<div class="item-inner">
-							
+							<img class='skill-image' src='{{language.image.url}}'>	
 						</div><!--//item-inner-->
 					</div><!--//item-->
+					{% endfor %}
 
-                    <div class="item col-6 col-lg-3">
-						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-linux"></i></div>
-							<h3 class="item-title">GNU/Linux</h3>
-						</div><!--//item-inner-->
-					</div><!--//item-->
+		    <h2 class="section-title font-weight-bold mb-3">Frameworks & Libraries</h2>
 
-					<div class="item col-6 col-lg-3">
+					{% for x in frameworks_and_libraries %}
+          <div class="item col-6 col-lg-3">
 						<div class="item-inner">
-							<div class="item-icon"><i class="fas fa-user-secret"></i></div>
-							<h3 class="item-title">Security</h3>
+							<img class='skill-image' src='{{x.image.url}}'>	
 						</div><!--//item-inner-->
 					</div><!--//item-->
+					{% endfor %}
 
-                    <div class="item col-6 col-lg-3">
-						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-html5 mr-2"></i><i class="fab fa-css3-alt"></i></div>
-							<h3 class="item-title">HTML &amp; CSS</h3>
-						</div><!--//item-inner-->
-					</div><!--//item-->
+		    <h2 class="section-title font-weight-bold mb-3">Database</h2>
 
-					<div class="item col-6 col-lg-3">
+					{% for db in database %}
+          <div class="item col-6 col-lg-3">
 						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-raspberry-pi mr-2"></i></div>
-							<h3 class="item-title">Raspberry Pi</h3>
+							<img class='skill-image' src='{{db.image.url}}'>	
 						</div><!--//item-inner-->
 					</div><!--//item-->
+					{% endfor %}
 
-					<div class="item col-6 col-lg-3">
-						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-js-square"></i></div>
-							<h3 class="item-title">JavaScript</h3>
-						</div><!--//item-inner-->
-					</div><!--//item-->
+		    <h2 class="section-title font-weight-bold mb-3">Other Technologies</h2>
 
-					<div class="item col-6 col-lg-3">
+					{% for ot in other_technologies %}
+          <div class="item col-6 col-lg-3">
 						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-bootstrap"></i></div>
-							<h3 class="item-title">Bootstrap</h3>
+							<img class='skill-image' src='{{ot.image.url}}'>	
 						</div><!--//item-inner-->
 					</div><!--//item-->
-					
-					<div class="item col-6 col-lg-3">
-						<div class="item-inner">
-							<div class="item-icon"><i class="fab fa-github mr-2"></i></div>
-							<h3 class="item-title">Git</h3>
-						</div><!--//item-inner-->
-					</div><!--//item-->
+					{% endfor %}
 
 				</div><!--//row-->
 		

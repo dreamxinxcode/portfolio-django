@@ -188,6 +188,10 @@ img {
   background-color: #151e29;
 }
 
+.skill-img {
+  height: 3rem;
+}
+
 .blog-post-card {
   background: #151e29;
   border: none;

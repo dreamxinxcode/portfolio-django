@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseNotFound
 from django.utils import timezone
-from . models import Homepage
+from . models import Homepage, Skills
 from blog.models import BlogPost
 from projects.models import Project
 from django.conf import settings
@@ -19,7 +19,11 @@ def homepage_view(request):
         "description": "",
         "homepage": Homepage.objects.first(),
         "blog_home": BlogPost.objects.all()[0:6],
-        "projects_home": Project.objects.filter(project_featured=True).order_by('-project_date')[0:6],
+        "projects_home": Project.objects.filter(project_featured=True).order_by('-project_date')[0:9],
+        'languages': Skills.objects.filter(category='LANGUAGES'),
+        'frameworks_and_libraries': Skills.objects.filter(category='FRAMEWORKS_AND_LIBRARIES'),
+        'database': Skills.objects.filter(category='DATABASE'),
+        'other_technologies': Skills.objects.filter(category='OTHER_TECHNOLOGIES'),
         "blog_footer": blog_footer,
         "projects_footer": projects_footer,
     }
