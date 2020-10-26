@@ -3,7 +3,7 @@ from tinymce.widgets import TinyMCE
 from django.db import models
 from blog.models import BlogPost
 from projects.models import Project
-from . models import Homepage
+from . models import Homepage, Skills
 # Register your models here.
 
 
@@ -33,5 +33,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Homepage)
+admin.site.register(Skills)
 admin.site.register(BlogPost, BlogPostAdmin)
 admin.site.register(Project, ProjectAdmin)
