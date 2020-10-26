@@ -96,13 +96,3 @@ def contact_view(request):
         "projects_footer": projects_footer,
     }
     return render(request, "main/contact.html", context)
-
-
-def services_view(request):
-    context = {
-        "title": "Dream in Code | Services",
-        "description": "",
-        "blog_footer": blog_footer,
-        "projects_footer": projects_footer,
-    }
-    return render(request, "main/services.html", context)
